@@ -1,0 +1,11 @@
+                add(buttons[i][j]);
+            }
+        }
+
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new Main();
+    }
+}
