@@ -1,0 +1,47 @@
+
+
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Main extends JFrame {
+
+    JButton[][] buttons = new JButton[3][3];
+    char currentPlayer = 'X';
+
+    int scoreX = 0;
+    int scoreO = 0;
+
+    JLabel scoreLabel = new JLabel("Score: X = 0 | O = 0");
+    JLabel statusLabel = new JLabel("Player X turn");
+
+    public Main() {
+
+        setTitle("Tic Tac Toe");
+        setSize(400, 450);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+
+        Font font = new Font("Arial", Font.BOLD, 40);
+
+        JPanel board = new JPanel(new GridLayout(3, 3));
+
+        scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        scoreLabel.setFont(new Font("Arial", Font.BOLD, 18));
+
+        statusLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        statusLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        statusLabel.setForeground(Color.BLACK);
+
+        JPanel topPanel = new JPanel(new GridLayout(2, 1));
+        topPanel.add(scoreLabel);
+        topPanel.add(statusLabel);
+
+for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+
+        buttons[i][j] = new JButton("");
+        buttons[i][j].setFont(font);
+
+        int row = i;
+        int col = j;
