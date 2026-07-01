@@ -1,0 +1,8 @@
+board.add(buttons[i][j]);
+    }
+}
+
+add(topPanel, BorderLayout.NORTH);
+add(board, BorderLayout.CENTER);
+
+setVisible(true);
