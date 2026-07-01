@@ -1,0 +1,51 @@
+[7/1/2026 9:59 PM] Սերգ: buttons[i][j].addActionListener(e -> {
+
+    if (buttons[row][col].getText().equals("") &&
+            statusLabel.getText().contains("turn")) {
+
+        buttons[row][col].setText(String.valueOf(currentPlayer));
+
+        if (currentPlayer == 'X') {
+            buttons[row][col].setForeground(Color.RED);
+        } else {
+            buttons[row][col].setForeground(Color.BLUE);
+        }
+
+        if (checkWinner()) {
+
+            if (currentPlayer == 'X') {
+                scoreX++;
+                statusLabel.setText("Player X Wins!");
+                statusLabel.setForeground(Color.RED);
+            } else {
+                scoreO++;
+                statusLabel.setText("Player O Wins!");
+                statusLabel.setForeground(Color.BLUE);
+            }
+
+            scoreLabel.setText("Score: X = " + scoreX + " | O = " + scoreO);
+
+            JOptionPane.showMessageDialog(this,
+                    "Player " + currentPlayer + " Wins!");
+
+            resetBoard();
+            return;
+        }
+
+        if (isDraw()) {
+
+            statusLabel.setText("Draw!");
+            statusLabel.setForeground(Color.GREEN);
+
+            JOptionPane.showMessageDialog(this, "Draw!");
+
+            resetBoard();
+            return;
+        }
+
+        currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+        statusLabel.setText("Player " + currentPlayer + " turn");
+        statusLabel.setForeground(Color.BLACK);
+    }
+});
+[7/1/2026 10:01 PM] Արման: 
